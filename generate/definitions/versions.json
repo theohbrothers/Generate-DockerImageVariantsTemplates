@@ -1,0 +1,17 @@
+{
+  "webize": {
+    "versions": [
+      "0.8.0",
+      "0.7.1",
+      "0.6.1",
+      "0.5.1",
+      "0.4.0",
+      "0.3.1",
+      "0.2.2",
+      "0.1.0",
+      "0.0.3"
+    ],
+    "versionsChangeScope": "minor",
+    "versionsNewScript": "Invoke-WebRequest https://api.github.com/repos/theohbrothers/webize/git/refs/tags | ConvertFrom-Json | % { $_.ref -replace 'refs/tags/v', '' } | ? { $_ -match '^\\d+\\.\\d+\\.\\d+$' } | Sort-Object { [version]$_ } -Descending"
+  }
+}
