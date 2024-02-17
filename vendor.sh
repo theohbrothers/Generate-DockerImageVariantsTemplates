@@ -11,9 +11,9 @@ usage() {
     echo "  # Vendor all templates to the current working directory (dry-run)"
     echo "  /path/to/Generate-DockerImageVariantsTemplates/vendor.sh -n"
     echo
-    echo "  # Vendor CI templates to the current working directory"
+    echo "  # Vendor all templates to the current working directory"
     echo "  /path/to/Generate-DockerImageVariantsTemplates/vendor.sh"
-
+    echo
     echo "  # Vendor CI templates to the current working directory"
     echo "  /path/to/Generate-DockerImageVariantsTemplates/vendor.sh ci"
 }
