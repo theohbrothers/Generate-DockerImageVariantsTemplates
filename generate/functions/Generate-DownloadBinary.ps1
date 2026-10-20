@@ -1,4 +1,4 @@
-# Version 0.1.1
+# Version 0.2.0
 function Generate-DownloadBinary ($o) {
     Set-StrictMode -Version Latest
 
@@ -38,35 +38,35 @@ RUN set -eux; \
         switch ($a) {
             "$os/386" {
                 $hardware = 'x86'
-                $regex = "$os[-_](i?$arch|x86(_64)?)[-_]?$archv$( [regex]::Escape($o['archiveformat']) )$|(i?$arch|x86(_64)?)[-_]?$archv.*?[-_]$os.*?$( [regex]::Escape($o['archiveformat']) )$"
+                $regex = "$os[-_.](i?$arch|x86(_64)?)[-_.]?$archv$( [regex]::Escape($o['archiveformat']) )$|(i?$arch|x86(_64)?)[-_.]?$archv.*?[-_.]$os.*?$( [regex]::Escape($o['archiveformat']) )$"
             }
             "$os/amd64" {
                 $hardware = 'x86_64'
-                $regex = "$os[-_]($arch|x86(_64)?)[-_]?$archv$( [regex]::Escape($o['archiveformat']) )$|($arch|x86(_64)?)[-_]?$archv.*?[-_]$os.*?$( [regex]::Escape($o['archiveformat']) )$"
+                $regex = "$os[-_.]($arch|x86(_64)?)[-_.]?$archv$( [regex]::Escape($o['archiveformat']) )$|($arch|x86(_64)?)[-_.]?$archv.*?[-_.]$os.*?$( [regex]::Escape($o['archiveformat']) )$"
             }
             "$os/arm/v6" {
                 $hardware = 'armhf'
-                $regex = "$os[-_]($arch|arm)[-_]?($archv)?$( [regex]::Escape($o['archiveformat']) )$|($arch|arm)[-_]?($archv)?.*?[-_]$os.*?$( [regex]::Escape($o['archiveformat']) )$"
+                $regex = "$os[-_.]($arch|arm)[-_.]?($archv)?$( [regex]::Escape($o['archiveformat']) )$|($arch|arm)[-_.]?($archv)?.*?[-_.]$os.*?$( [regex]::Escape($o['archiveformat']) )$"
             }
             "$os/arm/v7" {
                 $hardware = 'armv7l'
-                $regex = "$os[-_]($arch|arm)[-_]?($archv)?$( [regex]::Escape($o['archiveformat']) )$|($arch|arm)[-_]?($archv)?.*?[-_]$os.*?$( [regex]::Escape($o['archiveformat']) )$"
+                $regex = "$os[-_.]($arch|arm)[-_.]?($archv)?$( [regex]::Escape($o['archiveformat']) )$|($arch|arm)[-_.]?($archv)?.*?[-_.]$os.*?$( [regex]::Escape($o['archiveformat']) )$"
             }
             "$os/arm64" {
                 $hardware = 'aarch64'
-                $regex = "$os[-_]($arch|aarch64)[-_]?$archv$( [regex]::Escape($o['archiveformat']) )$|($arch|aarch64)[-_]?$archv.*?[-_]$os.*?$( [regex]::Escape($o['archiveformat']) )$"
+                $regex = "$os[-_.]($arch|aarch64)[-_.]?$archv$( [regex]::Escape($o['archiveformat']) )$|($arch|aarch64)[-_.]?$archv.*?[-_.]$os.*?$( [regex]::Escape($o['archiveformat']) )$"
             }
             "$os/ppc64le" {
                 $hardware = 'ppc64le'
-                $regex = "$os[-_]$arch[-_]?$archv$( [regex]::Escape($o['archiveformat']) )$|$arch[-_]?$archv.*?[-_]$os.*?$( [regex]::Escape($o['archiveformat']) )$"
+                $regex = "$os[-_.]$arch[-_.]?$archv$( [regex]::Escape($o['archiveformat']) )$|$arch[-_.]?$archv.*?[-_.]$os.*?$( [regex]::Escape($o['archiveformat']) )$"
             }
             "$os/riscv64" {
                 $hardware = 'riscv64'
-                $regex = "$os[-_]$arch[-_]?$archv$( [regex]::Escape($o['archiveformat']) )$|$arch[-_]?$archv.*?[-_]$os.*?$( [regex]::Escape($o['archiveformat']) )$"
+                $regex = "$os[-_.]$arch[-_.]?$archv$( [regex]::Escape($o['archiveformat']) )$|$arch[-_.]?$archv.*?[-_.]$os.*?$( [regex]::Escape($o['archiveformat']) )$"
             }
             "$os/s390x" {
                 $hardware = 's390x'
-                $regex = "$os[-_]$arch[-_]?$archv$( [regex]::Escape($o['archiveformat']) )$|$arch[-_]?$archv.*?[-_]$os.*?$( [regex]::Escape($o['archiveformat']) )$"
+                $regex = "$os[-_.]$arch[-_.]?$archv$( [regex]::Escape($o['archiveformat']) )$|$arch[-_.]?$archv.*?[-_.]$os.*?$( [regex]::Escape($o['archiveformat']) )$"
             }
             default {
                 throw "Unsupported architecture: $a"
